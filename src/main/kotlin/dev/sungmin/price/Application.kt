@@ -4,8 +4,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class RealEstateTransactionPriceApiApplication
+class Application
 
 fun main(args: Array<String>) {
-    runApplication<RealEstateTransactionPriceApiApplication>(*args)
+    runApplication<Application>(*args)
 }
