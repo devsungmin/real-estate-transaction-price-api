@@ -7,5 +7,6 @@ import org.springframework.boot.runApplication
 class Application
 
 fun main(args: Array<String>) {
+    System.setProperty("spring.profiles.default", "local")
     runApplication<Application>(*args)
 }

@@ -1,0 +1,19 @@
+spring:
+  config:
+    activate:
+      on-profile: "local"
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3307/kotlin
+    username: root
+    password: 'root'
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        show_sql: false
+        format_sql: true
+#  redis:
+#    host: localhost
+#    port: 6380

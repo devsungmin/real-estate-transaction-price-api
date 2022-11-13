@@ -12,6 +12,18 @@ group = "dev.sungmin"
 version = "1.0.0"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
+val profile = if (project.hasProperty("profile")) {
+    project.property("profile").toString()
+} else "local"
+
+sourceSets {
+    main {
+        resources {
+            srcDirs(listOf("src/main/resources", "src/main/resources-$profile"))
+        }
+    }
+}
+
 configurations {
     compileOnly {
         extendsFrom(configurations.annotationProcessor.get())
@@ -40,6 +52,16 @@ tasks.withType<KotlinCompile> {
     }
 }
 
+tasks.getByName<Test>("test") {
+    systemProperty("spring.profiles.active", profile)
+}
+
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+tasks {
+    processResources {
+        duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    }
 }
